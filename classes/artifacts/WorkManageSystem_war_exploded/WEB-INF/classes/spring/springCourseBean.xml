@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+<beans>
+
+	<bean id="courseDao" class="wms.dao.CourseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="courseManagerBase" class="wms.service.CourseManager">
+		<property name="courseDao" ref="courseDao"></property>
+	</bean>
+
+	<!-- id="controller中@Resource(name="teacherManager")"  parent="hibernate事物配置id"-->
+	<bean id="courseManager" parent="transactionBase">
+		<property name="target" ref="courseManagerBase"></property>
+	</bean>
+
+
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+<beans>
+
+	<bean id="workDao" class="wms.dao.WorkDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="workManagerBase" class="wms.service.WorkManager">
+		<property name="workDao" ref="workDao"></property>
+	</bean>
+
+	<!-- id="controller中@Resource(name="workManager")"  parent="hibernate事物配置id"-->
+	<bean id="workManager" parent="transactionBase">
+		<property name="target" ref="workManagerBase"></property>
+	</bean>
+
+
+</beans>

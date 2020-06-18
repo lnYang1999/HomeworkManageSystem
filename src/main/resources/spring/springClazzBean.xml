@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+<beans>
+
+	<bean id="clazzDao" class="wms.dao.ClazzDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="clazzManagerBase" class="wms.service.ClazzManager">
+		<property name="clazzDao" ref="clazzDao"></property>
+	</bean>
+
+	<!-- id="controller中@Resource(name="clazzManager")"  parent="hibernate事物配置id"-->
+	<bean id="clazzManager" parent="transactionBase">
+		<property name="target" ref="clazzManagerBase"></property>
+	</bean>
+
+
+</beans>

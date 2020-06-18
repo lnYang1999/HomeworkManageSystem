@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+
+
+<beans>
+	<!-- 配置教师事物（Teacher）bean -->
+	<import resource="classpath*:spring/springTeacherBean.xml" />
+	<!-- 配置学生事物（Student）bean -->
+	<import resource="classpath*:spring/springStudentBean.xml" />
+	<!-- 配置管理员事物（Manager）bean -->
+	<import resource="classpath*:spring/springManagerBean.xml" />
+	<!-- 配置课程事务（Course）bean -->
+	<import resource="classpath*:spring/springCourseBean.xml" />
+	<!-- 配置作业事务（Work）bean -->
+	<import resource="classpath*:spring/springWorkBean.xml" />
+	<!-- 配置公告事务（Notice）bean -->
+	<import resource="classpath*:spring/springNoticeBean.xml" />
+	<!-- 配置作业批改表事务（checkWork）bean -->
+	<import resource="classpath*:spring/springCheckWorkBean.xml" />
+	<!-- 配置 班级事务-->
+	<import resource="classpath*:spring/springClazzBean.xml" />
+</beans>

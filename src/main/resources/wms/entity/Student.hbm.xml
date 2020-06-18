@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.Student" table="student">
+		<meta attribute="class-description">
+		This class contains the student detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->
+		<id name="id" column="id " type="int" />	
+		<property name="s_account" column="s_account " type="string" />	
+		<property name="s_name" column="s_name" type="string"/>
+		<property name="s_sex" column="s_sex" type="string"/>	
+		<property name="s_c_id" column="s_c_id" type="string"/>	
+		<property name="s_password" column="s_password" type="string"/>	
+		<property name="s_dept" column="s_dept" type="string"/>	
+	</class>
+</hibernate-mapping>

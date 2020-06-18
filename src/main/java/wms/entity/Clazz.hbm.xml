@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.Clazz" table="clazz">
+		<meta attribute="class-description">
+		This class contains the Clazz detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->
+		<id name="id" column="id " type="int" />	
+		<property name="c_id" column="c_id " type="string" />	
+		<property name="c_count" column="c_count" type="int"/>
+	</class>
+</hibernate-mapping>

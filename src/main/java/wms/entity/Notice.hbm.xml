@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.Notice" table="notice"> 
+		<meta attribute="class-description">
+		This class contains the notice detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->	
+		<id name="nt_id" column="nt_id " type="int" />	
+		<property name="nt_title" column="nt_title " type="string" />	
+		<property name="nt_content" column="nt_content" type="string"/>
+		<property name="nt_time" column="nt_time" type="string"/>	
+		<property name="nt_t_account" column="nt_t_account" type="string"/>	
+		<property name="nt_c_id" column="nt_c_id" type="string"/>	
+	</class>
+</hibernate-mapping>

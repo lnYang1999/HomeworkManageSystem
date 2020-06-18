@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+
+
+<beans>
+	<!-- 配置hibernate相关数据库的操作 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- 数据库的驱动 -->
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<!-- 数据库的Id,用户名与密码 -->
+		<property name="url" value="jdbc:mysql://localhost:3306/wms?characterEncoding=UTF-8&amp;serverTimezone=UTC" />
+		<property name="username" value="root" />
+		<property name="password" value="12345ysp" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<!-- 配置不同数据库的方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 其实这个参数的作用主要用于：自动创建|更新|验证数据库表结构。 如果不是此方面的需求建议set value="none". 其它几个参数的意思，我解释一下： 
+					validate 加载hibernate时，验证创建数据库表结构 create 每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。 
+					create-drop 加载hibernate时创建，退出是删除表结构； update 加载hibernate自动更新数据库结构 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- 是否显示sql语句 -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hiberante.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="configLocations">
+			<list>
+				<value>
+					<!-- 读取和实体相关的xml -->
+					classpath*:wms/hibernate/hibernate.cfg.test.xml
+				</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 定义事务管理器（声明式的事务） -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="transactionBase"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		lazy-init="true" abstract="true">
+		<!-- 配置事务管理器 -->
+		<property name="transactionManager" ref="transactionManager"></property>
+		<!-- 配置事务管理器 -->
+		<property name="transactionAttributes">
+			<props>
+				<!-- 下面就开始配置各个模块所必须的部分，在各自的applicationContext-XXX-beans.xml配置的对于事务管理的详细信息。 
+					首先就是配置事务的传播特性，如下： -->
+				<!-- 配置事务传播特性 -->
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="modify*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="get*">PROPAGATION_NEVER</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.Manager" table="manager">
+		<meta attribute="class-description">
+		This class contains the Manager detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->
+		<id name="id" column="id " type="int" />	
+		<property name="m_account" column="m_account " type="string" />	
+		<property name="m_name" column="m_name" type="string"/>
+		<property name="m_password" column="m_password" type="string"/>	
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+
+]>
+<beans>
+
+	<bean id="noticeDao" class="wms.dao.NoticeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="noticeManagerBase" class="wms.service.NoticeManager">
+		<property name="noticeDao" ref="noticeDao"></property>
+	</bean>
+
+	<!-- id="controller中@Resource(name="noticeManager")"  parent="hibernate事物配置id"-->
+	<bean id="noticeManager" parent="transactionBase">
+		<property name="target" ref="noticeManagerBase"></property>
+	</bean>
+
+
+</beans>

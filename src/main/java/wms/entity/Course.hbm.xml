@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.Course" table="course">
+		<meta attribute="class-description">
+		This class contains the course detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->
+		<id name="c_id" column="c_id " type="int" />	
+		<property name="c_name" column="c_name " type="string" />	
+		<property name="c_credit" column="c_credit" type="int"/>
+	</class>
+</hibernate-mapping>

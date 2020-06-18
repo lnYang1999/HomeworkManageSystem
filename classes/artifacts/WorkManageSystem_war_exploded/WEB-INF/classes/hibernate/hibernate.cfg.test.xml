@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- （通常是 hibernate.cfg.xml）中声明持久性类： -->
+<hibernate-configuration>
+    <session-factory>
+    	<!-- List of XML mapping files -->
+	    <mapping resource="wms/entity/Manager.hbm.xml"/>
+	    <mapping resource="wms/entity/Teacher.hbm.xml"/>
+	    <mapping resource="wms/entity/Student.hbm.xml"/>
+	    <mapping resource="wms/entity/Clazz.hbm.xml"/>
+	    <mapping resource="wms/entity/Course.hbm.xml"/>
+	    <mapping resource="wms/entity/Work.hbm.xml"/>
+	    <mapping resource="wms/entity/CheckWork.hbm.xml"/>
+	    <mapping resource="wms/entity/Notice.hbm.xml"/>
+        <!-- <mapping class="wms.entity.Teacher"/> -->
+    </session-factory>
+</hibernate-configuration>

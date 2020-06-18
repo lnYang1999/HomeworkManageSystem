@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	 "-//Hibernate/Hibernate Mapping DTD//EN"
+	 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+	
+<hibernate-mapping>
+	<class name="wms.entity.CheckWork" table="checkwork">
+		<meta attribute="class-description">
+		This class contains the checkwork detail. 
+		</meta>
+		<!-- name="实体表属性" column="数据库表属性" -->
+		<id name="ch_id" column="ch_id " type="int" />	
+		<property name="ch_s_account" column="ch_s_account " type="string" />	
+		<property name="ch_c_id" column="ch_c_id " type="string" />	
+		<property name="ch_w_id" column="ch_w_id" type="int"/>
+		<property name="ch_score" column="ch_score" type="int"/>	
+		<property name="ch_mark" column="ch_mark" type="string"/>	
+		<property name="ch_checkTime" column="ch_checkTime" type="java.sql.Timestamp"/>	
+		<property name="ch_upTime" column="ch_upTime" type="java.sql.Timestamp"/>
+		<property name="ch_path" column="ch_path" type="string"/>	
+	</class>
+</hibernate-mapping>
