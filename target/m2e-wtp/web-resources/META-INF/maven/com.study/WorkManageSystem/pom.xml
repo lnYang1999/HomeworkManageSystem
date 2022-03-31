@@ -6,7 +6,7 @@
   <packaging>war</packaging>
   
   <properties>
-        <spring.version>4.1.5.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
         <hibernate.version>4.3.8.Final</hibernate.version>
         <mysql.version>5.1.10</mysql.version>
         <junit-version>4.11</junit-version>
